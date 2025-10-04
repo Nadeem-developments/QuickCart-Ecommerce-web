@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* ✅ Compatibility & Clean Build Options */
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+
+    /* ✅ Ignore TypeScript 6+ Deprecation Warnings */
+    "ignoreDeprecations": "6.0",
+
+    /* ✅ Path Aliases (for @/ components, utils, etc.) */
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+
+  /* ✅ Files to Include */
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+
+  /* ✅ Files to Exclude */
+  "exclude": ["node_modules"]
+}

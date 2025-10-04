@@ -9,13 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.1.6",
+    "@clerk/nextjs": "^6.33.1",
+    "inngest": "^3.44.1",
+    "mongoose": "^8.19.0",
+    "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/aws-lambda": "^8.10.155",
+    "@types/bunyan": "^1.8.11",
+    "@types/connect": "^3.4.38",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^24.6.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
