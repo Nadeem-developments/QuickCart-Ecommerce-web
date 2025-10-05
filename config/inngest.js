@@ -17,8 +17,9 @@ export const syncUserCreation = inngest.createFunction(
       name: `${first_name || ""} ${last_name || ""}`.trim(),
       imageUrl: image_url,
     };
+
     await connectDB();
-    await User.create(userData);
+    await User.findByIdAndUpdate(id, userData, { upsert: true });
   }
 );
 
