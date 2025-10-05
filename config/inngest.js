@@ -19,7 +19,9 @@ export const syncUserCreation = inngest.createFunction(
     };
 
     await connectDB();
-    await User.findByIdAndUpdate(id, userData, { upsert: true });
+    const existingUser = await User.findById(id);
+    if (existingUser) return;
+    await User.create(userData);
   }
 );
 
