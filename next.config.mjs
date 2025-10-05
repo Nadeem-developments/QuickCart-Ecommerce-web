@@ -15,7 +15,7 @@ const nextConfig = {
   },
 
   experimental: {
-    typedRoutes: true,
+    // typedRoutes: true,
   },
 
   // 👇 یہ نیا حصہ add کیا گیا ہے images کی اجازت کے لیے

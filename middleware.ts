@@ -1,14 +1,12 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-// Clerk middleware ko export karte hain
 export default clerkMiddleware();
 
-// Next.js ko batate hain kin routes par middleware chale
+// ✅ Safe configuration for Vercel deploy
 export const config = {
   matcher: [
-    // Ignore Next.js internal files and static assets
-    "/((?!_next|.*\\..*).*)",
-    // Always include API routes
-    "/(api|trpc)(.*)",
+    // Run Clerk middleware for all routes
+    // BUT skip Next.js internals, static assets, and APIs
+    "/((?!_next|.*\\..*|api|trpc|favicon.ico).*)",
   ],
 };
