@@ -11,17 +11,15 @@ export const syncUserCreation = inngest.createFunction(
     const { id, first_name, image_url, last_name, email_addresses } =
       event.data;
 
-    const userData = {
-      _id: id,
-      email: email_addresses[0]?.email_address || "",
-      name: `${first_name || ""} ${last_name || ""}`.trim(),
-      imageUrl: image_url,
-    };
+    const email = email_addresses?.[0]?.email_address || "";
+    const name = `${first_name || ""} ${last_name || ""}`.trim();
 
     await connectDB();
-    const existingUser = await User.findById(id);
-    if (existingUser) return;
-    await User.create(userData);
+    await User.findByIdAndUpdate(
+      id,
+      { _id: id, email, name, imageUrl: image_url },
+      { upsert: true, new: true }
+    );
   }
 );
 
@@ -32,14 +30,11 @@ export const syncUserUpdation = inngest.createFunction(
     const { id, first_name, image_url, last_name, email_addresses } =
       event.data;
 
-    const userData = {
-      _id: id,
-      email: email_addresses[0]?.email_address || "",
-      name: `${first_name || ""} ${last_name || ""}`.trim(),
-      imageUrl: image_url,
-    };
+    const email = email_addresses?.[0]?.email_address || "";
+    const name = `${first_name || ""} ${last_name || ""}`.trim();
+
     await connectDB();
-    await User.findByIdAndUpdate(id, userData);
+    await User.findByIdAndUpdate(id, { email, name, imageUrl: image_url });
   }
 );
 
